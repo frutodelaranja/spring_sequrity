@@ -1,0 +1,11 @@
+web/dao/UserDaoImp.class
+web/service/UserDetailsServiceImp.class
+web/config/WebConfig.class
+web/controller/UserController.class
+web/model/Role.class
+web/model/User.class
+web/config/AppInit.class
+web/config/SecurityConfig.class
+web/dao/UserDao.class
+web/config/handler/LoginSuccessHandler.class
+web/config/SpringSecurityInitializer.class

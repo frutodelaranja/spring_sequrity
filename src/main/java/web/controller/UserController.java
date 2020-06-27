@@ -1,9 +1,13 @@
 package web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import web.model.User;
+import web.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +15,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class UserController {
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
@@ -22,15 +28,32 @@ public class UserController {
         return "hello";
     }
 
-	@RequestMapping(value = "user", method = RequestMethod.GET)
-	public String userPage(){
-		return "user";
-	}
+    @RequestMapping(value = "user", method = RequestMethod.GET)
+    public String userPage(Model model, Authentication authentication){
+
+        User user = userService.findByLogin(authentication.getName());
+        model.addAttribute("user", user);
+        return "user";
+    }
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String loginPage() {
         return "login";
     }
 
+
+
+
+    @PostMapping("save")
+    public String saveUser(@ModelAttribute("newUser") User user) {
+        userService.save(user);
+        return "redirect:/admin";
+    }
+    @GetMapping("delete")
+    public String deleteUser(@RequestParam(value = "id") Long id, Model model){
+        model.addAttribute("id",id);
+        userService.delete(id);
+        return "redirect:/admin";
+    }
 
 }

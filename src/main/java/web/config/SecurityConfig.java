@@ -19,8 +19,7 @@ import web.config.handler.LoginSuccessHandler;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    @Qualifier("detailsService")
-    UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
 
     @Override
@@ -61,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").anonymous()
                 // защищенные URL
                 .antMatchers("/user").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/hello").hasRole("ADMIN").anyRequest().authenticated();
+                .antMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated();
 
     }
 

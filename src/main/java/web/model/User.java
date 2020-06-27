@@ -1,5 +1,7 @@
 package web.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +15,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "username")
     private String username;
@@ -20,39 +24,34 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Transient
-    private String confirmPassword;
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "users_id"),
-    inverseJoinColumns = @JoinColumn(name = "roles_id"))
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Role> roles;
 
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String name, String username, String password) {
+        this.name = name;
         this.username = username;
         this.password = password;
     }
 
-    public User(String username, String password, String confirmPassword) {
+    public User(String name, String username, String password, Set<Role> roles) {
+        this.name = name;
         this.username = username;
         this.password = password;
-        this.confirmPassword = confirmPassword;
-    }
-
-    public User(String username, String password, String confirmPassword, Set<Role> roles) {
-        this.username = username;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
         this.roles = roles;
     }
 
-    public User(String username, String password, Set<Role> roles) {
-        this.username = username;
-        this.password = password;
-        this.roles = roles;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -102,14 +101,6 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public Set<Role> getRoles() {

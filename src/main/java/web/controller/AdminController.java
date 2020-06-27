@@ -19,9 +19,7 @@ public class AdminController {
     @GetMapping
     public String adminPage(Model model){
         List<User> users = userService.listUsers();
-        List<String> checkbox = new ArrayList<>();
         model.addAttribute("users", users);
-        model.addAttribute("userRole", checkbox);
         model.addAttribute("newUser", (new User()));
         return "admin";
 

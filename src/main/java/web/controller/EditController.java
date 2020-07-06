@@ -8,7 +8,7 @@ import web.model.User;
 import web.service.UserService;
 
 @Controller
-@RequestMapping(value = "/edit")
+@RequestMapping(value = "/admin/edit")
 public class EditController {
 
     @Autowired

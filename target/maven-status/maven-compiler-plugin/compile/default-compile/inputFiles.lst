@@ -1,6 +1,7 @@
 /home/evgeny/dev/spring_sequrity/src/main/java/web/model/Role.java
 /home/evgeny/dev/spring_sequrity/src/main/java/web/controller/AdminController.java
 /home/evgeny/dev/spring_sequrity/src/main/java/web/service/UserService.java
+/home/evgeny/dev/spring_sequrity/src/main/java/web/controller/EditController.java
 /home/evgeny/dev/spring_sequrity/src/main/java/web/service/UserDetailsServiceImp.java
 /home/evgeny/dev/spring_sequrity/src/main/java/web/config/AppInit.java
 /home/evgeny/dev/spring_sequrity/src/main/java/web/config/SpringSecurityInitializer.java

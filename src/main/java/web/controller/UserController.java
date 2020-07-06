@@ -36,20 +36,20 @@ public class UserController {
         return "user";
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-        return "login";
+        return "/login";
     }
 
 
 
 
-    @PostMapping("save")
+    @PostMapping("/admin/save")
     public String saveUser(@ModelAttribute("newUser") User user) {
         userService.save(user);
         return "redirect:/admin";
     }
-    @GetMapping("delete")
+    @GetMapping("/admin/delete")
     public String deleteUser(@RequestParam(value = "id") Long id, Model model){
         model.addAttribute("id",id);
         userService.delete(id);

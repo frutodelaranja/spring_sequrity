@@ -23,7 +23,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.0.1" />
-          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.2.0.RELEASE" />
@@ -44,6 +43,11 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.0.11.RELEASE" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
         </element>
       </element>
       <element id="directory" name="META-INF">
